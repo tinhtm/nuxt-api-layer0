@@ -58,6 +58,8 @@ routesToCache.forEach((i) => {
   });
 });
 
+router.get('/category/autoship', ({ cache }) => { cache({ browser: false, edge: { maxAgeSeconds: 60 * 60 } }) })
+
 router.use(nuxtRoutes);
 
 export default router;
