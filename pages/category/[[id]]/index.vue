@@ -216,6 +216,34 @@
 const config = useRuntimeConfig();
 const { $fetchDrberg, $fetchDrbergAzure, $reloadCart } = useNuxtApp();
 
+let fetchBaseLink = undefined
+
+const hostHeader = useRequestHeaders(['host'])
+
+if (typeof window !== 'undefined') {
+  fetchBaseLink = window.location.origin
+}
+// If on server side (either on Layer0 or on local)
+else {
+  let hostURL = hostHeader.host || process.env.API_URL
+  // Caution: Use process.env.API_URL to get benefits on speeding up responses with Layer0 Caching
+  // In case the APIs to be fetched is not cached with Layer0 as per routes.ts, it might run into upstream timeouts
+  // You have access to req.headers.host when running npm run dev (or 0 dev)
+  // You have access to process.env.API_URL on Layer0 env after deployment, regardless of if req header is present
+  // This speeds up responses of the API when cached
+  if (hostURL) {
+    hostURL = hostURL.replace('http://', '')
+    hostURL = hostURL.replace('https://', '')
+    if (hostURL.includes('localhost:')) {
+      fetchBaseLink = `http://${hostURL}`
+    } else {
+      fetchBaseLink = `https://${hostURL}`
+    }
+  }
+}
+
+fetchBaseLink= `${fetchBaseLink}/api`
+
 // Listing layout
 const listingLayout = ref('GRID');
 
@@ -245,11 +273,12 @@ const filterQueryParams = ['healthConcernIds', 'productTypeIds', 'dietTypeIds']
 
 const [{ data: productTypesMenu }, { data: healthConcernsMenu }, { data: dietTypesMenu }, { data: productResponse }] =
   await Promise.all([
-    $fetchDrbergAzure(`products/product-types`),
-    $fetchDrbergAzure(`products/health-concerns`),
-    $fetchDrbergAzure(`products/diet-types`),
+    $fetchDrbergAzure(`products/product-types`, fetchBaseLink),
+    $fetchDrbergAzure(`products/health-concerns`, fetchBaseLink),
+    $fetchDrbergAzure(`products/diet-types`, fetchBaseLink),
     $fetchDrbergAzure(
       `products?${new URLSearchParams(queryParams).toString()}${filterQueryParams ? '&' + filterQueryParams : ''}`,
+      fetchBaseLink
     ),
   ]);
 
