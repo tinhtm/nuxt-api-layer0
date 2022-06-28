@@ -36,9 +36,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       },
       fetchDrbergAzure(
         endpoint,
+        fetchBaseLink,
         { body = null, method = 'GET', contentType = 'application/json' } = defaultRequestArgs,
       ) {
-        return useFetch(`${config.public.baseDrbergAzureUrl}/${endpoint}`, {
+        return useFetch(`${fetchBaseLink || config.public.baseDrbergAzureUrl}/${endpoint}`, {
           headers: {
             'Content-Type': contentType,
           },
