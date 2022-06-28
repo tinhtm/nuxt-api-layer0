@@ -1,0 +1,42 @@
+{
+  "scripts": {
+    "layer0:dev": "layer0 dev",
+    "layer0:build": "layer0 build",
+    "layer0:deploy": "layer0 deploy",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "private": true,
+  "name": "subscription-nuxt",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@layer0/cli": "^4.15.1",
+    "@layer0/core": "^4.15.1",
+    "@layer0/devtools": "^4.15.1",
+    "@layer0/nuxt-nitro": "^4.15.1",
+    "@layer0/nuxt3": "^4.15.1",
+    "@layer0/prefetch": "^4.15.1",
+    "@layer0/vue": "^4.15.1",
+    "@nuxtjs/eslint-config-typescript": "^10.0.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.16.0",
+    "eslint-plugin-vue": "^9.0.1",
+    "nuxt": "3.0.0-rc.3",
+    "postcss": "^8.4.14",
+    "sass": "^1.52.1",
+    "sass-loader": "10",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.7.2",
+    "vite-plugin-eslint": "^1.6.1"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.7.5",
+    "@vueuse/nuxt": "^8.7.5",
+    "axios": "^0.27.2"
+  }
+}

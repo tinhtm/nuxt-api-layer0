@@ -1,0 +1,185 @@
+.page-header {
+    box-shadow: none;
+    background: #fff;
+    border: 0;
+    margin-bottom: 0;
+}
+
+.page-header .header.content {
+    box-sizing: border-box;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    transition: all .5s;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0;
+    max-width: none;
+    width: auto;
+    gap: 40px;
+}
+
+.page-header .nav-toggle:before {
+    background: url('https://shop.drberg.com/static/version1653540790/frontend/Drberg/Shop/en_US/images/hamburger-menu.svg');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: '' !important;
+    display: inline;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.nav-toggle {
+    margin-left: 24px;
+    margin-right: 20px
+}
+
+.nav-toggle>span {
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.header.links {
+    margin: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    gap: 25px;
+}
+
+.header.links li, ul.header.links [data-content-type="html"] {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 12px;
+    position: relative;
+}
+
+.header .block-search .control {
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.header.content .block-search input {
+    border-radius: 24px;
+    padding-left: 48px;
+    background-color: #f4f4f4;
+    font: normal 16px/14px;
+    font-weight: 400;
+    border: 0;
+    width: 640px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    line-height: 30px;
+    color: #2a363e;
+}
+
+.block-search button.action.search {
+    left: 10px;
+    width: 44px;
+    top: -47px;
+    height: 48px;
+    position: relative;
+    padding: 0;
+}
+
+.header.content .block-search .action.search {
+    display: inline-block;
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    padding: 0;
+    margin-right: 8px;
+}
+
+.header.content .block.block-content {
+    position: relative;
+}
+
+.header.content .block-search .actions {
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+
+.header.content .block-search .action.search:before {
+    content: '';
+    width: 44px;
+    height: 44px;
+    background: url('https://shop.drberg.com/static/version1653540790/frontend/Drberg/Shop/en_US/images/btn-search.svg');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    display: block;
+}
+.page-header .nav-sections {
+    background: #fff;
+    padding-left: 90px;
+    height: auto;
+}
+.page-header .nav-sections .nav-sections-items {
+    margin: 0 16px;
+}
+
+.navigation {
+    height: inherit;
+    left: auto;
+    overflow: inherit;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.nav-sections .navigation ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.nav-sections .navigation .level0.parent>.level-top {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: #2a363e;
+    font: 18px/40px;
+    font-weight: 700;
+}
+
+.nav-sections .navigation .level0.parent>.level-top .menu_label {
+    background: #fc642d;
+    padding: 3px 5px;
+    margin-left: 8px;
+    border-radius: 9px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.2;
+    position: relative;
+    top: -3px;
+}
+
+.nav-sections .navigation li.level0.active .level-top span:first-child:after {
+    content: '';
+    width: 100%;
+    display: block;
+    height: 2px;
+    background: #0091a8;
+    border-radius: 2px;
+}
+
+.nav-sections .navigation li.level0.active .level-top {
+    color: #0091a8;
+}
