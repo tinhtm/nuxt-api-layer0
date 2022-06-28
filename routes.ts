@@ -18,6 +18,7 @@ const routesToCache: any = [
       '/api/products/diet-types',
     ],
     proxyingTo: 'products_dev',
+    removeHeadersFromOrigin: ['set-cookie']
   },
   {
     cacheType: {
@@ -42,8 +43,13 @@ const router = new Router();
 
 routesToCache.forEach((i) => {
   i.routesThatShouldFollowThisCache.forEach((route) => {
-    router.match(route, ({ cache, proxy }) => {
+    router.match(route, ({ cache, proxy, removeUpstreamResponseHeader }) => {
       cache(i.cacheType);
+      if (i?.removeHeadersFromOrigin) {
+          i.removeHeadersFromOrigin.forEach((headerToRemove) => {
+            removeUpstreamResponseHeader(headerToRemove) 
+          })
+      }
       if (i?.proxyingTo) {
         // Falls back to Nuxt if proxy is not set
         proxy(i.proxyingTo);
